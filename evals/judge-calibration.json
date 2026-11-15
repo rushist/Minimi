@@ -1,0 +1,82 @@
+[
+  {
+    "question": "What is the capital of Japan?",
+    "reference": "Tokyo",
+    "evidence": "Tokyo is the capital of Japan.",
+    "answer": "Tokyo is the capital of Japan.",
+    "correct": true,
+    "grounded": true
+  },
+  {
+    "question": "What is the capital of Japan?",
+    "reference": "Tokyo",
+    "evidence": "Tokyo is the capital of Japan.",
+    "answer": "Kyoto is the capital of Japan.",
+    "correct": false,
+    "grounded": false
+  },
+  {
+    "question": "What is the capital of Japan?",
+    "reference": "Tokyo",
+    "evidence": "Japan is an island country.",
+    "answer": "Tokyo is the capital of Japan.",
+    "correct": true,
+    "grounded": false
+  },
+  {
+    "question": "Who wrote Frankenstein?",
+    "reference": "Mary Shelley",
+    "evidence": "Mary Shelley wrote Frankenstein.",
+    "answer": "Mary Shelley wrote it in 1918.",
+    "correct": false,
+    "grounded": false
+  },
+  {
+    "question": "What unit measures force?",
+    "reference": "Newton",
+    "evidence": "The newton is the SI unit of force.",
+    "answer": "Force is measured in newtons.",
+    "correct": true,
+    "grounded": true
+  },
+  {
+    "question": "Who leads the fictional Alder council now?",
+    "reference": "Mira Chen",
+    "evidence": "October: Jones was acting mayor. November: Mira Chen was sworn in.",
+    "answer": "Jones currently leads the council.",
+    "correct": false,
+    "grounded": false
+  },
+  {
+    "question": "Who leads the fictional Alder council now?",
+    "reference": "Mira Chen",
+    "evidence": "November: Mira Chen was sworn in as mayor.",
+    "answer": "Mira Chen leads the council.",
+    "correct": true,
+    "grounded": true
+  },
+  {
+    "question": "Who wrote Dracula and Frankenstein?",
+    "reference": "Bram Stoker and Mary Shelley",
+    "evidence": "Bram Stoker wrote Dracula.",
+    "answer": "Bram Stoker wrote Dracula.",
+    "correct": false,
+    "grounded": true
+  },
+  {
+    "question": "What did the two schedules say?",
+    "reference": "May 4 and May 8",
+    "evidence": "One notice lists May 4. The other lists May 8.",
+    "answer": "The notices disagree, listing May 4 and May 8.",
+    "correct": true,
+    "grounded": true
+  },
+  {
+    "question": "Who said the launch would continue?",
+    "reference": "A company spokesperson",
+    "evidence": "A company spokesperson said the launch would continue.",
+    "answer": "The CEO said the launch would continue.",
+    "correct": false,
+    "grounded": false
+  }
+]

@@ -1,0 +1,284 @@
+[
+  {
+    "id": "stable-1",
+    "category": "stable",
+    "question": "Capital of Japan?",
+    "expected": ["Tokyo"],
+    "domain": "japan.go.jp"
+  },
+  {
+    "id": "stable-2",
+    "category": "stable",
+    "question": "Who wrote Pride and Prejudice?",
+    "expected": ["Jane Austen"],
+    "domain": "bl.uk"
+  },
+  {
+    "id": "stable-3",
+    "category": "stable",
+    "question": "What element has symbol Fe?",
+    "expected": ["Iron"],
+    "domain": "nist.gov"
+  },
+  {
+    "id": "stable-4",
+    "category": "stable",
+    "question": "What is the largest planet?",
+    "expected": ["Jupiter"],
+    "domain": "nasa.gov"
+  },
+  {
+    "id": "stable-5",
+    "category": "stable",
+    "question": "Who painted the Mona Lisa?",
+    "expected": ["Leonardo da Vinci"],
+    "domain": "louvre.fr"
+  },
+  {
+    "id": "stable-6",
+    "category": "stable",
+    "question": "What is the SI unit of force?",
+    "expected": ["Newton"],
+    "domain": "bipm.org"
+  },
+  {
+    "id": "fresh-1",
+    "category": "fresh",
+    "question": "Who is the fictional city of Alder’s new mayor in the November 2026 replay?",
+    "expected": ["Mira Chen"],
+    "domain": "alder.example.org"
+  },
+  {
+    "id": "fresh-2",
+    "category": "fresh",
+    "question": "What is the new opening date for the fictional Linden station?",
+    "expected": ["November 20"],
+    "domain": "transit.example.org"
+  },
+  {
+    "id": "fresh-3",
+    "category": "fresh",
+    "question": "What is the latest fictional storm warning for Bay County?",
+    "expected": ["Evacuate Zone A"],
+    "domain": "weather.example.org"
+  },
+  {
+    "id": "fresh-4",
+    "category": "fresh",
+    "question": "Who was appointed to lead the fictional Oak Library?",
+    "expected": ["Nora Price"],
+    "domain": "library.example.org"
+  },
+  {
+    "id": "fresh-5",
+    "category": "fresh",
+    "question": "When is the rescheduled fictional race?",
+    "expected": ["December 2"],
+    "domain": "race.example.org"
+  },
+  {
+    "id": "fresh-6",
+    "category": "fresh",
+    "question": "What is the new fictional River Museum ticket price?",
+    "expected": ["12 dollars"],
+    "domain": "museum.example.org"
+  },
+  {
+    "id": "multi-1",
+    "category": "multi",
+    "question": "Who wrote Frankenstein and who wrote Dracula?",
+    "expected": ["Mary Shelley", "Bram Stoker"],
+    "domain": "bl.uk"
+  },
+  {
+    "id": "multi-2",
+    "category": "multi",
+    "question": "What planets are the closest and farthest from the Sun?",
+    "expected": ["Mercury", "Neptune"],
+    "domain": "nasa.gov"
+  },
+  {
+    "id": "multi-3",
+    "category": "multi",
+    "question": "What countries contain Tokyo and Seoul?",
+    "expected": ["Japan", "South Korea"],
+    "domain": "example.org"
+  },
+  {
+    "id": "multi-4",
+    "category": "multi",
+    "question": "Which units measure force and power?",
+    "expected": ["Newton", "Watt"],
+    "domain": "bipm.org"
+  },
+  {
+    "id": "multi-5",
+    "category": "multi",
+    "question": "Which elements have symbols Na and K?",
+    "expected": ["Sodium", "Potassium"],
+    "domain": "nist.gov"
+  },
+  {
+    "id": "multi-6",
+    "category": "multi",
+    "question": "Which cities hosted the 2008 and 2012 summer Olympics?",
+    "expected": ["Beijing", "London"],
+    "domain": "olympics.com"
+  },
+  {
+    "id": "ambiguous-1",
+    "category": "ambiguous",
+    "question": "Tell me about Mercury.",
+    "expected": ["Planet or element?"]
+  },
+  {
+    "id": "ambiguous-2",
+    "category": "ambiguous",
+    "question": "What is Java?",
+    "expected": ["Language or island?"]
+  },
+  {
+    "id": "ambiguous-3",
+    "category": "ambiguous",
+    "question": "How large is Georgia?",
+    "expected": ["Country or US state?"]
+  },
+  {
+    "id": "ambiguous-4",
+    "category": "ambiguous",
+    "question": "Who founded Apple? Which Apple do you mean?",
+    "expected": ["Apple Inc. or Apple Records?"]
+  },
+  {
+    "id": "ambiguous-5",
+    "category": "ambiguous",
+    "question": "What is the Jaguar speed?",
+    "expected": ["Animal or car?"]
+  },
+  {
+    "id": "ambiguous-6",
+    "category": "ambiguous",
+    "question": "What is Rust used for?",
+    "expected": ["Programming language or corrosion?"]
+  },
+  {
+    "id": "filter-1",
+    "category": "filter",
+    "question": "Use only official docs from nodejs.org for the Node test runner flag.",
+    "expected": ["--test"],
+    "domain": "nodejs.org"
+  },
+  {
+    "id": "filter-2",
+    "category": "filter",
+    "question": "site:docs.python.org What joins path segments?",
+    "expected": ["os.path.join"],
+    "domain": "docs.python.org"
+  },
+  {
+    "id": "filter-3",
+    "category": "filter",
+    "question": "Exclude Wikipedia. Who wrote Emma?",
+    "expected": ["Jane Austen"],
+    "domain": "bl.uk"
+  },
+  {
+    "id": "filter-4",
+    "category": "filter",
+    "question": "Find the exact error \"ERR_TLS_CERT_ALTNAME_INVALID\".",
+    "expected": ["ERR_TLS_CERT_ALTNAME_INVALID"],
+    "domain": "nodejs.org"
+  },
+  {
+    "id": "filter-5",
+    "category": "filter",
+    "question": "site:nasa.gov Which planet has the Great Red Spot?",
+    "expected": ["Jupiter"],
+    "domain": "nasa.gov"
+  },
+  {
+    "id": "filter-6",
+    "category": "filter",
+    "question": "What changed last week at the fictional Cedar Library?",
+    "expected": ["Sunday opening"],
+    "domain": "library.example.org"
+  },
+  {
+    "id": "no_answer-1",
+    "category": "no_answer",
+    "question": "What is the exact password to the fictional locked diary?",
+    "expected": []
+  },
+  {
+    "id": "no_answer-2",
+    "category": "no_answer",
+    "question": "What is tomorrow’s exact lottery result?",
+    "expected": []
+  },
+  {
+    "id": "no_answer-3",
+    "category": "no_answer",
+    "question": "What is the verified name of the fictional anonymous donor?",
+    "expected": []
+  },
+  {
+    "id": "no_answer-4",
+    "category": "no_answer",
+    "question": "Which unpublished revision will the fictional board choose?",
+    "expected": []
+  },
+  {
+    "id": "no_answer-5",
+    "category": "no_answer",
+    "question": "What is the exact unrecorded time of the fictional archive fire?",
+    "expected": []
+  },
+  {
+    "id": "no_answer-6",
+    "category": "no_answer",
+    "question": "Who won the fictional game that never took place?",
+    "expected": []
+  },
+  {
+    "id": "conflict-1",
+    "category": "conflict",
+    "question": "What opening date do the two fictional Birch Station notices give?",
+    "expected": ["May 4", "May 8"],
+    "domain": "station.example.org"
+  },
+  {
+    "id": "conflict-2",
+    "category": "conflict",
+    "question": "What are the conflicting fictional Alba survey estimates?",
+    "expected": ["Low estimate", "High estimate"],
+    "domain": "survey.example.org"
+  },
+  {
+    "id": "conflict-3",
+    "category": "conflict",
+    "question": "What hours do the fictional museum notices disagree about?",
+    "expected": ["Morning opening", "Afternoon opening"],
+    "domain": "museum.example.org"
+  },
+  {
+    "id": "conflict-4",
+    "category": "conflict",
+    "question": "How do fictional River County schedules disagree?",
+    "expected": ["Monday service", "Tuesday service"],
+    "domain": "transit.example.org"
+  },
+  {
+    "id": "conflict-5",
+    "category": "conflict",
+    "question": "What are the differing fictional event venue reports?",
+    "expected": ["North Hall", "South Hall"],
+    "domain": "events.example.org"
+  },
+  {
+    "id": "conflict-6",
+    "category": "conflict",
+    "question": "How do the fictional Pine reports disagree about access?",
+    "expected": ["Public access", "Restricted access"],
+    "domain": "pine.example.org"
+  }
+]

@@ -1,0 +1,88 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      HOST: 0.0.0.0
+      PORT: '3000'
+      REDIS_URL: redis://redis:6379
+      CHAT_DB_PATH: /data/chat.sqlite
+      TRACE_DB_PATH: /data/traces.sqlite
+      TRACE_REPLAY_ENABLED: '${TRACE_REPLAY_ENABLED:-false}'
+      QUOTA_DB_PATH: /data/quota.sqlite
+      SEARCH_FIXTURE_DIR: /data/search-fixtures
+      CHAT_TRUSTED_PROXY_HOST: web
+      FETCH_BROWSER_ENABLED: '${FETCH_BROWSER_ENABLED:-false}'
+      RETRIEVAL_EMBEDDING_DIR: /models/embedding
+      RETRIEVAL_EMBEDDING_REVISION: '${RETRIEVAL_EMBEDDING_REVISION:-751bff37182d3f1213fa05d7196b954e230abad9}'
+      RETRIEVAL_RERANK_ENABLED: '${RETRIEVAL_RERANK_ENABLED:-false}'
+      RETRIEVAL_RERANK_DIR: /models/reranker
+    volumes:
+      - renderer-socket:/renderer
+      - ./.data/models:/models:ro
+      - chat-data:/data
+    ports:
+      - '127.0.0.1:${API_PUBLISHED_PORT:-3000}:3000'
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:3000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+  redis:
+    image: redis:7-alpine
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 5
+  web:
+    build:
+      context: .
+      dockerfile: docker/web.Dockerfile
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - '127.0.0.1:${WEB_PUBLISHED_PORT:-8080}:80'
+    healthcheck:
+      test: ['CMD', 'wget', '-qO', '/dev/null', 'http://127.0.0.1/health']
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  renderer:
+    profiles: ['browser']
+    build:
+      context: .
+      dockerfile: docker/renderer.Dockerfile
+    network_mode: none
+    mem_limit: 512m
+    cpus: 1.0
+    pids_limit: 128
+    init: true
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ['no-new-privileges:true']
+    healthcheck:
+      test: ['CMD-SHELL', 'test -S /renderer/browser.sock']
+      interval: 2s
+      timeout: 1s
+      retries: 5
+    tmpfs:
+      - /tmp:size=128m,mode=1777
+    volumes:
+      - renderer-socket:/renderer
+
+volumes:
+  renderer-socket:
+  chat-data:

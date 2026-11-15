@@ -1,0 +1,28 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm format:check
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm build
+      - run: node apps/api/dist/evals/run.js --check >> "$GITHUB_STEP_SUMMARY"
+      - run: docker compose up --build --wait
+      - run: |
+          curl --fail --silent http://localhost:3000/health | jq -e '.status == "ok"'
+          curl --fail --silent http://localhost:8080/health | jq -e '.status == "ok"'
+          curl --fail --silent http://localhost:8080/ | grep -q '<title>Glint</title>'
+          docker compose exec -T redis redis-cli ping | grep -qx PONG
+      - if: always()
+        run: docker compose down
